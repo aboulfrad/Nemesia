@@ -44,6 +44,7 @@ public class Controller implements Initializable {
         }
 
         System.out.println("Nous avons réussi notre git push et git pull !");
+        System.out.println("Git c'est trop harr");
     }
 
 
