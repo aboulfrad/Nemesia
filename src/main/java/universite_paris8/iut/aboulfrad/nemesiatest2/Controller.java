@@ -42,6 +42,8 @@ public class Controller implements Initializable {
                 iv.setFitWidth(32);
             }
         }
+
+        System.out.println("Nous avons réussi notre git push et git pull !");
     }
 
 
