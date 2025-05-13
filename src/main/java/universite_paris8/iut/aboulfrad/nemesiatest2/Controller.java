@@ -40,8 +40,6 @@ public class Controller implements Initializable {
                 tilePane.getChildren().add(iv);
                 iv.setFitHeight(32);
                 iv.setFitWidth(32);
-
-                //Edvin akari
             }
         }
     }
