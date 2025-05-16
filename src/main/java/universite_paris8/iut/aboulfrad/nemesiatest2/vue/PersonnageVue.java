@@ -20,6 +20,8 @@ public class PersonnageVue {
     private Personnage perso;
     private int posX = 57;
     private int posY = 30;
+    private double vitesseJamesY = -8;
+    private double force = 15;
     private ImageView ivp;
     private final int TUILE = 16;
 
@@ -34,6 +36,7 @@ public class PersonnageVue {
         ivp.setFitHeight(32);
         pane.getChildren().add(ivp);
     }
+
     public void deplacementPerso(){
         afficherPerso();
 
@@ -44,10 +47,10 @@ public class PersonnageVue {
 
         pane.setOnKeyPressed(event -> {
             switch (event.getCode()) {
-                case RIGHT -> posX++;
+                case RIGHT -> posX++; //perso.deplacerDroite();
                 case LEFT -> posX--;
-                case UP -> posY--;
-                case DOWN -> posY++;
+                case SPACE -> posY-- ;
+//              case DOWN -> posY++; Pour descendre, ce qui est inutile pour la suite
             }
 
             mouvementMAJ();
@@ -57,5 +60,9 @@ public class PersonnageVue {
     private void mouvementMAJ() {
         ivp.setTranslateX(posX * TUILE);
         ivp.setTranslateY(posY * TUILE);
+    }
+
+    private boolean estAuSol(){
+        return posY >= 30;
     }
 }
