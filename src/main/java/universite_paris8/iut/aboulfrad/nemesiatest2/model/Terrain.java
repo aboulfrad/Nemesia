@@ -3,6 +3,7 @@ package universite_paris8.iut.aboulfrad.nemesiatest2.model;
 /*
     Cette classe stocke les données du terrain. C'est-à-dire quel type de tuile est où.
  */
+
 public class Terrain {
     public static final double TUILE = 16;
     private int[][] terrain = {

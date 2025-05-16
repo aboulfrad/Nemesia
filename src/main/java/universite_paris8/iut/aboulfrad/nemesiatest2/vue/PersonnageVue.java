@@ -5,17 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.aboulfrad.nemesiatest2.model.Personnage;
 import universite_paris8.iut.aboulfrad.nemesiatest2.model.Terrain;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.Pane;
-import universite_paris8.iut.aboulfrad.nemesiatest2.model.Terrain;
-import universite_paris8.iut.aboulfrad.nemesiatest2.vue.TerrainVue;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class PersonnageVue {
 
@@ -28,8 +18,8 @@ public class PersonnageVue {
     private TilePane tilePane;
     private Pane pane;
     private Personnage perso;
-    private int posX = 5;
-    private int posY = 20;
+    private int posX = 57;
+    private int posY = 30;
     private ImageView ivp;
     private final int TUILE = 16;
 
@@ -47,10 +37,8 @@ public class PersonnageVue {
     public void deplacementPerso(){
         afficherPerso();
 
-        // Position initiale
-        updatePosition();
+        mouvementMAJ();
 
-        // Rendre le pane focusable et écouter les touches
         pane.setFocusTraversable(true);
         pane.requestFocus();
 
@@ -62,11 +50,11 @@ public class PersonnageVue {
                 case DOWN -> posY++;
             }
 
-            updatePosition();
+            mouvementMAJ();
         });
     }
 
-    private void updatePosition() {
+    private void mouvementMAJ() {
         ivp.setTranslateX(posX * TUILE);
         ivp.setTranslateY(posY * TUILE);
     }

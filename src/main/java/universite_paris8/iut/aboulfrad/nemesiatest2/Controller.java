@@ -20,11 +20,6 @@ public class Controller implements Initializable {
     @FXML
     private Pane pane;
 
-
-    private int posX = 5;
-    private int posY = 20;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

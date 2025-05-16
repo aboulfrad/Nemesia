@@ -3,6 +3,7 @@ package universite_paris8.iut.aboulfrad.nemesiatest2.model;
 /*
     Cette classe stocke les données du personnage. C'est-à-dire quel
  */
+
 public class Personnage {
 
     private int x; // colonne (horizontal)
