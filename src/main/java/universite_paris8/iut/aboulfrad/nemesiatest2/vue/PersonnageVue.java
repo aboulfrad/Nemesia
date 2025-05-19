@@ -24,6 +24,7 @@ public class PersonnageVue {
     private double force = 15;
     private ImageView ivp;
     private final int TUILE = 16;
+    private Terrain terrain;
 
     public void afficherPerso() {
         Terrain terrain = new Terrain();
@@ -49,12 +50,42 @@ public class PersonnageVue {
             switch (event.getCode()) {
                 case RIGHT -> posX++; //perso.deplacerDroite();
                 case LEFT -> posX--;
-                case SPACE -> posY-- ;
-//              case DOWN -> posY++; Pour descendre, ce qui est inutile pour la suite
+                case UP -> posY-- ;
+                case DOWN -> posY++; //Pour descendre, ce qui est inutile pour la suite
             }
-
-            mouvementMAJ();
+            if(mouvementEstPossible() == true)
+                mouvementMAJ();
         });
+    }
+
+    /**
+     * Cette fonction, permet de print l'image du personnage en fonction de ça position. ( ps : colision avec le sol(coordonnée : y = 31))
+     */
+    private boolean mouvementEstPossible() {
+        if(posY > 30){
+            System.out.println("Trop bas !");
+            posY--;
+            return false;
+        }
+        else if(posY < 0){
+            System.out.println("Tu vas où ?!");
+            posY++;
+            return true;
+        }
+        else if(posX < 0) {
+            System.out.println("Tu vas où ?!");
+            posX++;
+            return false;
+        }
+//        else if(posX < this.terrain.hauteur()){
+//            System.out.println("Tu vas où ?!");
+//            posX--;
+//        }
+//        else if(posY < this.terrain.hauteur()){
+//            System.out.println("Tu vas où ?!");
+//            posY--;
+//        }
+        return true;
     }
 
     private void mouvementMAJ() {
