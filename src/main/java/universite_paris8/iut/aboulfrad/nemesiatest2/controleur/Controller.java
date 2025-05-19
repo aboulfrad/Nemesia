@@ -1,4 +1,4 @@
-package universite_paris8.iut.aboulfrad.nemesiatest2;
+package universite_paris8.iut.aboulfrad.nemesiatest2.controleur;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

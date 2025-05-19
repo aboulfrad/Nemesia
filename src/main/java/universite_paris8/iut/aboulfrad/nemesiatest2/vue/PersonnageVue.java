@@ -37,7 +37,7 @@ public class PersonnageVue {
         ivp.setFitHeight(32);
         pane.getChildren().add(ivp);
     }
-
+    // Déplacer cette fonction dans le controller
     public void deplacementPerso(){
         afficherPerso();
 
@@ -48,14 +48,14 @@ public class PersonnageVue {
 
         pane.setOnKeyPressed(event -> {
             switch (event.getCode()) {
-                case RIGHT -> posX++; //perso.deplacerDroite();
-                case LEFT -> posX--;
-                case UP -> posY-- ;
-                case DOWN -> posY++; //Pour descendre, ce qui est inutile pour la suite
+                case RIGHT -> perso.changerDirectionDroite();
+                case LEFT -> perso.changerDirectionGauche();
+//                case UP -> posY-- ;
+//                case DOWN -> posY++; //Pour descendre, ce qui est inutile pour la suite
             }
             if(mouvementEstPossible() == true)
                 mouvementMAJ();
-        });
+            });
     }
 
     /**
@@ -77,14 +77,11 @@ public class PersonnageVue {
             posX++;
             return false;
         }
-//        else if(posX < this.terrain.hauteur()){
-//            System.out.println("Tu vas où ?!");
-//            posX--;
-//        }
-//        else if(posY < this.terrain.hauteur()){
-//            System.out.println("Tu vas où ?!");
-//            posY--;
-//        }
+//         else if (posX >= this.terrain.largueur()) {
+//             System.out.println("Trop à droite !");
+//             posX--;
+//             return false;
+//         }
         return true;
     }
 
