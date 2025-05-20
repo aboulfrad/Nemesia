@@ -18,7 +18,7 @@ public class ControlerPerso {
     private long dernierDeplacement = 0;
     private final long delai = 15_000_000; // 150 ms
 
-    public ControlerPerso(Personnage personnage,  PersonnageVue vue, Pane pane) {
+    public ControlerPerso(Personnage personnage, PersonnageVue vue, Pane pane) {
         this.perso = personnage;
         this.personnageVue = vue;
         this.pane = pane;
