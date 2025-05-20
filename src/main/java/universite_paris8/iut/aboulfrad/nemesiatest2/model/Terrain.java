@@ -125,10 +125,6 @@ public class Terrain {
 
     public Terrain() {}
 
-//    public int[][] getTerrain() {
-//        return terrain;
-//    }
-
     public int largueur () {
         return this.terrain.length;
     }
