@@ -66,28 +66,33 @@ public class ControlerPerso {
         gameloop.start();
     }
 
+
     private boolean deplacementEstValide() {
         int x = perso.getX();
         int y = perso.getY();
 
-
-        if (perso.getDirection() == 'd' && perso.getX() >= 114) {
+        // Limite droite
+        if (perso.getDirection() == 'd' && x >= 114 && perso.getX() >= 114) {
             x--;
-            return false;// bord droit
+            return false;
         }
-        if (perso.getDirection() == 'g' && perso.getX() <= 0) {
+        // Limite gauche
+        if (perso.getDirection() == 'g' && x <= 0 && perso.getX() <= 0) {
             x++;
-            return false;// bord gauche
+            return false;
         }
-        if (perso.getDirection() == 'h' && perso.getY() <= 0) {
-            y++;
-            return false;// trop haut
-        }
-        if (perso.getDirection() == 'b' && perso.getY() > 29) {
+        // Limite haute
+        if (perso.getDirection() == 'h' && y <= 0  && perso.getY() <= 0 ) {
             y--;
-            return false;// trop bas
+            return false;
         }
+
+        // Limite basse
+        if (perso.getDirection() == 'b' && y > 29 && perso.getY() > 29) {
+            y++;
+            return false;
+        }
+
         return true;
     }
 }
-
