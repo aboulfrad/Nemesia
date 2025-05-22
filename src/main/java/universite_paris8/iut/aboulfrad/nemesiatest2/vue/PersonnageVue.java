@@ -11,9 +11,11 @@ import universite_paris8.iut.aboulfrad.nemesiatest2.model.Personnage;
 public class PersonnageVue {
 
     private  ImageView imageView;
+
     private  Personnage personnage;
+
     private  Pane pane;
-    private  int TAILLE_TUILE = 16;
+
 
     public PersonnageVue(Personnage personnage, Pane pane) {
         this.personnage = personnage;
@@ -24,12 +26,15 @@ public class PersonnageVue {
         imageView.setFitWidth(32);
         imageView.setFitHeight(32);
 
+        // TODO ajouter ici les bind
+
         pane.getChildren().add(imageView);
         mettreAJourAffichage();
     }
 
     public void mettreAJourAffichage() {
-        imageView.setTranslateX(personnage.getX() * TAILLE_TUILE);
-        imageView.setTranslateY(personnage.getY() * TAILLE_TUILE);
+        imageView.setTranslateX(personnage.getX() * 32);
+
+        imageView.setTranslateY(personnage.getY() * 32);// BIND
     }
 }

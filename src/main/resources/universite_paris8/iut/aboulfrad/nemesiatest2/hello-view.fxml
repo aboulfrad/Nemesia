@@ -14,7 +14,7 @@
    </top>
    <center>
       <Pane fx:id="pane" BorderPane.alignment="CENTER">
-         <TilePane fx:id="tilePane"  />
+         <TilePane fx:id="tilePane"/>
       </Pane>
    </center>
 

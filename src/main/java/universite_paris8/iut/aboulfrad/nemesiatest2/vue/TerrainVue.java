@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import universite_paris8.iut.aboulfrad.nemesiatest2.model.Terrain;
 
-public class TerrainVue {
+public class  TerrainVue {
 
     private Terrain terrain;
     private TilePane tilePane;
@@ -20,8 +20,10 @@ public class TerrainVue {
         Image imagedirt = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/dirt.png").toExternalForm());
         Image imagegrass = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/grass.png").toExternalForm());
         Image imagesky = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/sky.png").toExternalForm());
-        tilePane.setPrefSize(64 * terrain.hauteur(),64 * terrain.largueur());
-        for (int i = 0; i < terrain.largueur(); i++) {
+
+        tilePane.setPrefSize(32 * terrain.hauteur(),32 * terrain.largeur());
+
+        for (int i = 0; i < terrain.largeur(); i++) {
             for (int j = 0; j < terrain.hauteur(); j++) {
                 ImageView iv = new ImageView();
                 if (terrain.typeTuile(i,j) == 1) {
@@ -31,6 +33,7 @@ public class TerrainVue {
                 } else if (terrain.typeTuile(i,j) == 3) {
                     iv.setImage(imagedirt);
                 }
+
                 tilePane.getChildren().add(iv);
                 iv.setFitHeight(32);
                 iv.setFitWidth(32);

@@ -1,5 +1,6 @@
 package universite_paris8.iut.aboulfrad.nemesiatest2.controleur;
 
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
@@ -19,17 +20,31 @@ public class Controller implements Initializable {
 
     @FXML
     private TilePane tilePane;
-
     @FXML
     private Pane pane;
+    private Personnage personnage;
+    private PersonnageVue pVue;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Terrain terrain = new Terrain();
         new TerrainVue(terrain, tilePane);
 
-        Personnage personnage = new Personnage();
-        PersonnageVue vue = new PersonnageVue(personnage, pane);
-        new ControlerPerso(personnage, vue, pane);
+        personnage = new Personnage(terrain);
+        pVue = new PersonnageVue(personnage, pane);
+        new ControlerPerso(personnage, pVue, pane);
+
+        boucleMouvement();
+    }
+
+    private void boucleMouvement() {
+        AnimationTimer gameloop = new AnimationTimer() {
+            @Override
+            public void handle(long deplacementPresent) {
+                        personnage.deplacer();
+                        pVue.mettreAJourAffichage(); //TODO remplacer par des bind
+            }
+        };
+        gameloop.start();
     }
 }

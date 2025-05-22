@@ -1,6 +1,5 @@
 package universite_paris8.iut.aboulfrad.nemesiatest2.controleur;
 
-import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import universite_paris8.iut.aboulfrad.nemesiatest2.model.Personnage;
@@ -15,16 +14,12 @@ public class ControlerPerso {
     private  PersonnageVue personnageVue;
     private  Pane pane;
 
-    private long dernierDeplacement = 0;
-    private  long delai = 15_000_000; // 15 ms
-
     public ControlerPerso(Personnage personnage, PersonnageVue vue, Pane pane) {
         this.perso = personnage;
         this.personnageVue = vue;
         this.pane = pane;
 
         directionTouche();
-        boucleMouvement();
     }
 
     private void directionTouche() {
@@ -50,44 +45,7 @@ public class ControlerPerso {
         });
     }
 
-    private void boucleMouvement() {
-        AnimationTimer gameloop = new AnimationTimer() {
-            @Override
-            public void handle(long deplacementPresent) {
-                if (deplacementPresent - dernierDeplacement > delai) {
-                    if (deplacementEstValide()) {
-                        perso.deplacer();
-                        personnageVue.mettreAJourAffichage();
-                    }
-                    dernierDeplacement = deplacementPresent;
-                }
-            }
-        };
-        gameloop.start();
-    }
-
-    private boolean deplacementEstValide() {
-        int x = perso.getX();
-        int y = perso.getY();
 
 
-        if (perso.getDirection() == 'd' && perso.getX() >= 114) {
-            x--;
-            return false;// bord droit
-        }
-        if (perso.getDirection() == 'g' && perso.getX() <= 0) {
-            x++;
-            return false;// bord gauche
-        }
-        if (perso.getDirection() == 'h' && perso.getY() <= 0) {
-            y++;
-            return false;// trop haut
-        }
-        if (perso.getDirection() == 'b' && perso.getY() > 29) {
-            y--;
-            return false;// trop bas
-        }
-        return true;
-    }
 }
 
