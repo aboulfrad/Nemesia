@@ -33,8 +33,8 @@ public class PersonnageVue {
     }
 
     public void mettreAJourAffichage() {
-        imageView.setTranslateX(personnage.getX() * 32);
+        imageView.setTranslateX(personnage.getX()*16);
 
-        imageView.setTranslateY(personnage.getY() * 32);// BIND
+        imageView.setTranslateY(personnage.getY()*16);// BIND
     }
 }
