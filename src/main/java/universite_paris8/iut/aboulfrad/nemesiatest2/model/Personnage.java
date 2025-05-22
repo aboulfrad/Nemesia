@@ -15,8 +15,8 @@ public class Personnage {
     private Terrain terrain;
 
     public Personnage(Terrain terrain) {
-        this.x = new SimpleIntegerProperty(15);
-        this.y = new SimpleIntegerProperty(15);
+        this.x = new SimpleIntegerProperty(33);
+        this.y = new SimpleIntegerProperty(18);
         this.terrain=terrain;
         this.direction = 'i';
     }

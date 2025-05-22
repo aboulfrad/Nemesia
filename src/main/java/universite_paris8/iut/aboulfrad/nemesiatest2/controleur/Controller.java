@@ -53,6 +53,8 @@ public class Controller implements Initializable {
                 ev -> {
                     personnage.deplacer();
                     pVue.mettreAJourAffichage(); // TODO : remplacer par du binding plus tard
+                    System.out.println("x : " + personnage.getX());
+                    System.out.println("y : " + personnage.getY());
                 }
         );
 
