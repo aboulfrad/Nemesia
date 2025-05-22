@@ -12,6 +12,7 @@ public class Personnage {
     private  IntegerProperty y;
     private char direction; // 'i' = immobile
 
+
     public Personnage() {
         this.x = new SimpleIntegerProperty(57);
         this.y = new SimpleIntegerProperty(30);
@@ -35,11 +36,12 @@ public class Personnage {
         this.direction = 'i';
     }
 
+
     public void deplacer() {
         switch (direction) {
             case 'd' -> x.set(x.get() + 1);
             case 'g' -> x.set(x.get() - 1);
-            case 'h' -> y.set(y.get() - 1);
+            case 'h' -> y.set(y.get() - 1 );
             case 'b' -> y.set(y.get() + 1);
         }
     }

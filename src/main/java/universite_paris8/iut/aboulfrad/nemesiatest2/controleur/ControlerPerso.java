@@ -16,7 +16,7 @@ public class ControlerPerso {
     private  Pane pane;
 
     private long dernierDeplacement = 0;
-    private final long delai = 15_000_000; // 150 ms
+    private  long delai = 15_000_000; // 15 ms
 
     public ControlerPerso(Personnage personnage, PersonnageVue vue, Pane pane) {
         this.perso = personnage;
@@ -38,7 +38,7 @@ public class ControlerPerso {
                 perso.changerDirection('g');
             } else if (event.getCode() == KeyCode.UP) {
                 perso.changerDirection('h');
-            }else if (event.getCode() == KeyCode.DOWN) {
+            } else if (event.getCode() == KeyCode.DOWN) {
                 perso.changerDirection('b');
             }
         });

@@ -10,10 +10,10 @@ import universite_paris8.iut.aboulfrad.nemesiatest2.model.Personnage;
  */
 public class PersonnageVue {
 
-    private final ImageView imageView;
-    private final Personnage personnage;
-    private final Pane pane;
-    private final int TAILLE_TUILE = 16;
+    private  ImageView imageView;
+    private  Personnage personnage;
+    private  Pane pane;
+    private  int TAILLE_TUILE = 16;
 
     public PersonnageVue(Personnage personnage, Pane pane) {
         this.personnage = personnage;
