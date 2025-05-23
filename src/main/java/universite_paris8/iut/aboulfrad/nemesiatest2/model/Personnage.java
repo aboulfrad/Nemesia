@@ -46,10 +46,10 @@ public class Personnage {
     public void deplacer() {
         int Fx = x.get(),Fy=y.get();
         switch (direction) {
-            case 'd' -> Fx = x.get() + 5;
-            case 'g' -> Fx = x.get() - 5;
-            case 'h' -> Fy = y.get() - 5;
-            case 'b' -> Fy = y.get() + 5;
+            case 'd' -> Fx = x.get() + 2;
+            case 'g' -> Fx = x.get() - 2;
+            case 'h' -> Fy = y.get() - 2;
+            case 'b' -> Fy = y.get() + 2;
         }
         if (terrain.estDansTerrain(Fx,Fy) && !terrain.estBloquer(Fx,Fy)) {
             x.set(Fx);

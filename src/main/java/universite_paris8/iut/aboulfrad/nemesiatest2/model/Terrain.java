@@ -39,21 +39,31 @@ public class Terrain {
 
     public Terrain() {}
 
-    public int largeur() { return this.terrain.length; }
-    public int largeurEnPixels() { return largeur() * 32; }
+    public int hauteur() {
+        return this.terrain.length;
+    }
 
-    public int hauteur () { return this.terrain[0].length; }
-    public int hauteurEnPixels(){ return hauteur() * 32; }
+    public int hauteurEnPixels() {
+        return hauteur() * 32;
+    }
+
+    public int largeur() {
+        return this.terrain[0].length;
+    }
+
+    public int largeurEnPixels() {
+        return largeur() * 32;
+    }
 
     public int typeTuile(int i, int j) {
         return this.terrain[i][j];
     }
 
-    public boolean estDansTerrain(int x, int y){
+    public boolean estDansTerrain(int x, int y) {
         return x >= 0 && x < largeurEnPixels() && y >= 0 && y < hauteurEnPixels();
     }
 
-    public boolean estBloquer(int x, int y){
-        return typeTuile(x/32,y/32) == 2 || typeTuile(x/32,y/32) == 3;
+    public boolean estBloquer(int x, int y) {
+        return typeTuile(y / 32, x / 32) == 2 || typeTuile(y / 32, x / 32) == 3;
     }
 }

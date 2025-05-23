@@ -16,7 +16,7 @@ public class TerrainVue {
         this.afficherTerrain();
     }
 
-    public void afficherTerrain () {
+    public void afficherTerrain() {
         Image sky = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/sky_dark.png").toExternalForm());
         Image grass = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/grass_dark.png").toExternalForm());
         Image dirt = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/dirt_dark.jpeg").toExternalForm());
@@ -24,10 +24,10 @@ public class TerrainVue {
         Image imageWhiteLight = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/blanc.png").toExternalForm());
         Image imageWhiteDark = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/gris.png").toExternalForm());
 
-        tilePane.setPrefSize(32 * terrain.hauteur(), 32 * terrain.largeur());
+        tilePane.setPrefSize(32 * terrain.largeur(), 32 * terrain.hauteur());
 
-        for (int i = 0; i < terrain.largeur(); i++) {
-            for (int j = 0; j < terrain.hauteur(); j++) {
+        for (int i = 0; i < terrain.hauteur(); i++) {
+            for (int j = 0; j < terrain.largeur(); j++) {
                 ImageView iv = new ImageView();
                 int tuile = terrain.typeTuile(i, j);
 
@@ -48,6 +48,5 @@ public class TerrainVue {
                 tilePane.getChildren().add(iv);
             }
         }
-
     }
 }

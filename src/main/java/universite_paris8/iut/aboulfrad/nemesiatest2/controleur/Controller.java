@@ -52,7 +52,7 @@ public class Controller implements Initializable {
         gameLoop.setCycleCount(Timeline.INDEFINITE);
 
         KeyFrame keyFrame = new KeyFrame(
-                Duration.seconds(0.05),
+                Duration.seconds(1.0/120.0),
                 ev -> {
                     personnage.deplacer();
                     System.out.println("x : " + personnage.getX());
