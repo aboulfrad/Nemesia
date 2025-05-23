@@ -21,20 +21,15 @@ public class PersonnageVue {
         this.personnage = personnage;
         this.pane = pane;
 
-        Image image = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/JamesGosling.png").toExternalForm());
+        Image image = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/JamesGosling_32x32.png").toExternalForm());
         imageView = new ImageView(image);
-        imageView.setFitWidth(32);
-        imageView.setFitHeight(32);
-
-        // TODO ajouter ici les bind
 
         pane.getChildren().add(imageView);
-        mettreAJourAffichage();
+
+        imageView.translateXProperty().bind(personnage.xProperty());
+        imageView.translateYProperty().bind(personnage.yProperty());
+
+
     }
 
-    public void mettreAJourAffichage() {
-        imageView.setTranslateX(personnage.getX()*16);
-
-        imageView.setTranslateY(personnage.getY()*16);// BIND
-    }
 }

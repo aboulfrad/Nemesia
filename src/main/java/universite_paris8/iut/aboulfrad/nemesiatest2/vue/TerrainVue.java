@@ -19,7 +19,7 @@ public class TerrainVue {
     public void afficherTerrain () {
         Image sky = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/sky_dark.png").toExternalForm());
         Image grass = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/grass_dark.png").toExternalForm());
-        Image dirt = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/dirt_dark.png").toExternalForm());
+        Image dirt = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/dirt_dark.jpeg").toExternalForm());
         Image imageBlack = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/noir.png").toExternalForm());
         Image imageWhiteLight = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/blanc.png").toExternalForm());
         Image imageWhiteDark = new Image(getClass().getResource("/universite_paris8/iut/aboulfrad/nemesiatest2/image/gris.png").toExternalForm());
@@ -45,8 +45,6 @@ public class TerrainVue {
                     iv.setImage(imageWhiteDark);
                 }
 
-                iv.setFitWidth(32);
-                iv.setFitHeight(32);
                 tilePane.getChildren().add(iv);
             }
         }

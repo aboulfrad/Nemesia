@@ -27,8 +27,11 @@ public class Controller implements Initializable {
     private TilePane tilePane;
     @FXML
     private Pane pane;
+
+
     private Personnage personnage;
     private PersonnageVue pVue;
+
     private Timeline gameLoop;
 
     @Override
@@ -52,7 +55,6 @@ public class Controller implements Initializable {
                 Duration.seconds(0.05),
                 ev -> {
                     personnage.deplacer();
-                    pVue.mettreAJourAffichage(); // TODO : remplacer par du binding plus tard
                     System.out.println("x : " + personnage.getX());
                     System.out.println("y : " + personnage.getY());
                 }
