@@ -64,6 +64,12 @@ public class Terrain {
     }
 
     public boolean estBloquer(int x, int y) {
-        return typeTuile(y / 32, x / 32) == 2 || typeTuile(y / 32, x / 32) == 3;
+        int i = y / 32;
+        int j = x / 32;
+        if (i < 0 || i >= hauteur() || j < 0 || j >= largeur())
+            return true;
+
+        int tuile = typeTuile(i, j);
+        return tuile == 2 || tuile == 3; // tu peux aussi créer une méthode estSolide(tuile)
     }
 }

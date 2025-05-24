@@ -11,6 +11,7 @@ public class Personnage {
     private  IntegerProperty x;
     private  IntegerProperty y;
     private char direction; // 'i' = immobile
+    private boolean auSol = true;
 
     private Terrain terrain;
 
@@ -44,20 +45,46 @@ public class Personnage {
     }
 
     public void deplacer() {
-        int Fx = x.get(),Fy=y.get();
-        switch (direction) {
-            case 'd' -> Fx = x.get() + 2;
-            case 'g' -> Fx = x.get() - 2;
-            case 'h' -> Fy = y.get() - 2;
-            case 'b' -> Fy = y.get() + 2;
-        }
-        if (terrain.estDansTerrain(Fx,Fy) && !terrain.estBloquer(Fx,Fy)) {
-            x.set(Fx);
-            y.set(Fy);
-            System.out.println(!terrain.estBloquer(Fx,Fy));
+        int Fx = x.get();
+        int Fy = y.get();
+
+        int width = 32;
+        int height = 32;
+
+        if (direction == 'd') {
+            int posFx = Fx + 2 + width;
+            int posFy = Fy + height / 2;
+            if (!terrain.estBloquer(posFx, posFy) && terrain.estDansTerrain(Fx + 2, Fy)) {
+                x.set(Fx + 2);
+            }
         }
 
+        if (direction == 'g') {
+            int testX = Fx - 2;
+            int testY = Fy + height / 2;
+            if (!terrain.estBloquer(testX, testY) && terrain.estDansTerrain(Fx - 2, Fy)) {
+                x.set(Fx - 2);
+            }
+        }
+
+        if (direction == 'h') {
+            int testX = Fx + width / 2;
+            int testY = Fy - 2;
+            if (!terrain.estBloquer(testX, testY) && terrain.estDansTerrain(Fx, Fy - 2)) {
+                y.set(Fy - 2);
+            }
+        }
+
+        if (direction == 'b') {
+            int testX = Fx + width / 2;
+            int testY = Fy + height + 2;
+            if (!terrain.estBloquer(testX, testY) && terrain.estDansTerrain(Fx, Fy + 2)) {
+                y.set(Fy + 2);
+                auSol = true;
+            }
+        }
     }
+
 
     public char getDirection() {
         return direction;
