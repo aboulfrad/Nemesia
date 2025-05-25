@@ -11,8 +11,10 @@ public class Personnage {
     private  IntegerProperty x;
     private  IntegerProperty y;
     private char direction; // 'i' = immobile
-    private boolean auSol = true;
-
+    private boolean parTerre = true;
+    private int vitesseY = 0;
+    private final int GRAVITE = 1;
+    private final int SAUT_FORCE = -5;
     private Terrain terrain;
 
     public Personnage(Terrain terrain) {
@@ -80,11 +82,10 @@ public class Personnage {
             int testY = Fy + height + 2;
             if (!terrain.estBloquer(testX, testY) && terrain.estDansTerrain(Fx, Fy + 2)) {
                 y.set(Fy + 2);
-                auSol = true;
+                parTerre = true;
             }
         }
     }
-
 
     public char getDirection() {
         return direction;
