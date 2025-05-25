@@ -31,7 +31,6 @@ public class Controller implements Initializable {
 
     private Personnage personnage;
     private PersonnageVue pVue;
-
     private Timeline gameLoop;
 
     @Override
@@ -52,9 +51,10 @@ public class Controller implements Initializable {
         gameLoop.setCycleCount(Timeline.INDEFINITE);
 
         KeyFrame keyFrame = new KeyFrame(
-                Duration.seconds(1.0/120.0),
+                Duration.seconds(1.0 / 60.0), // avant 120 la  60 FPS
                 ev -> {
                     personnage.deplacer();
+                    personnage.appliquerGravite(); // la faut faire la mAJ des saut
                     System.out.println("x : " + personnage.getX());
                     System.out.println("y : " + personnage.getY());
                 }

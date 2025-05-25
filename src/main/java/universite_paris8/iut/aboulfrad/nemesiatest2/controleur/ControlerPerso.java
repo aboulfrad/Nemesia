@@ -10,15 +10,14 @@ import universite_paris8.iut.aboulfrad.nemesiatest2.vue.PersonnageVue;
  */
 public class ControlerPerso {
 
-    private  Personnage perso;
-    private  PersonnageVue personnageVue;
-    private  Pane pane;
+    private Personnage perso;
+    private PersonnageVue personnageVue;
+    private Pane pane;
 
     public ControlerPerso(Personnage personnage, PersonnageVue vue, Pane pane) {
         this.perso = personnage;
         this.personnageVue = vue;
         this.pane = pane;
-
         directionTouche();
     }
 
@@ -31,21 +30,31 @@ public class ControlerPerso {
                 perso.changerDirection('d');
             } else if (event.getCode() == KeyCode.LEFT) {
                 perso.changerDirection('g');
-            } else if (event.getCode() == KeyCode.UP) {
+            }
+            /*else if (event.getCode() == KeyCode.UP) {
                 perso.changerDirection('h');
-            } else if (event.getCode() == KeyCode.DOWN) {
+            }
+             else if (event.getCode() == KeyCode.DOWN) {
                 perso.changerDirection('b');
+            }
+
+            */
+
+            else if (event.getCode() == KeyCode.UP) {
+                perso.sauter(); // La j'ai retier le 'h' et 'b' remplacer la fonction sauter .
             }
         });
 
         pane.setOnKeyReleased(event -> {
-            if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT || event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {
+            if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT) {
                 perso.arreter();
             }
         });
     }
-
-
-
 }
 
+
+/*
+
+event.getCode() == KeyCode.UP || event.getCode() == KeyCode.DOWN) {  retirer
+ */

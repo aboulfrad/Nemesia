@@ -14,12 +14,12 @@ public class Personnage {
     private boolean parTerre = true;
     private int vitesseY = 0;
     private final int GRAVITE = 1;
-    private final int SAUT_FORCE = -5;
+    private final int SAUT_FORCE = -15;
     private Terrain terrain;
 
     public Personnage(Terrain terrain) {
-        this.x = new SimpleIntegerProperty(29);
-        this.y = new SimpleIntegerProperty(30);
+        this.x = new SimpleIntegerProperty(300);
+        this.y = new SimpleIntegerProperty(478);
         this.terrain=terrain;
         this.direction = 'i';
     }
@@ -68,7 +68,7 @@ public class Personnage {
                 x.set(Fx - 2);
             }
         }
-
+/*
         if (direction == 'h') {
             int testX = Fx + width / 2;
             int testY = Fy - 2;
@@ -84,22 +84,46 @@ public class Personnage {
                 y.set(Fy + 2);
                 parTerre = true;
             }
+        }  // Je retirr caron utuilise plus
+*/
+    }
+
+    public void appliquerGravite() {
+        if (!parTerre) {
+            vitesseY += GRAVITE;
+            int newY = (int) (y.get() + vitesseY);
+
+            int milieuX = x.get() + 16;
+            int basY = newY + 32;
+
+            if (terrain.estBloquer(milieuX, basY) || !terrain.estDansTerrain(milieuX, basY)) {
+                // Collision sol
+                parTerre = true;
+                vitesseY = 0;
+                y.set((basY / 32 - 1) * 32); // aligne sur la case juste avant le sol
+            } else {
+                y.set(newY);
+            }
+        }
+    }
+
+    //Nouveau
+    public void sauter() {  //Modifier laje dis que je fais sauer le psg SSI il est au sol
+        if (parTerre) {
+            parTerre = false;   // Empeche un double saut
+            vitesseY = SAUT_FORCE;
         }
     }
 
     public char getDirection() {
-        return direction;
-    }
+        return direction; }
 
     public IntegerProperty xProperty() {
-        return x;
-    }
+        return x; }
 
     public IntegerProperty yProperty() {
-        return y;
-    }
+        return y; }
 
     public void setTerrain(Terrain terrain) {
-        this.terrain = terrain;
-    }
+        this.terrain = terrain; }
 }
